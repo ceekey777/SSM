@@ -36,6 +36,7 @@ public class EmployeeController {
     @GetMapping("/employee/page/{pageNum}")
     public String getEmployeePage(Model model,@PathVariable("pageNum") Integer pageNum) {
         //获取分页的的信息hot fix
+        //获取分页的的信息maintest
         PageInfo<Employee> page = employeeService.getEmployeePage(pageNum);
         //将分页数据共享在请求域中
         model.addAttribute("page",page);
