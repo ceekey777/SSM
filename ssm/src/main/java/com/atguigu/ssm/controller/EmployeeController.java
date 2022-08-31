@@ -37,6 +37,7 @@ public class EmployeeController {
     public String getEmployeePage(Model model,@PathVariable("pageNum") Integer pageNum) {
         //获取分页的的信息hot fix
         //获取分页的的信息maintest
+        //获取分页的的信息hot fix
         PageInfo<Employee> page = employeeService.getEmployeePage(pageNum);
         //将分页数据共享在请求域中
         model.addAttribute("page",page);
