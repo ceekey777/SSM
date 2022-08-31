@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public PageInfo<Employee> getEmployeePage(Integer pageNum) {
-        //开启分页功能
+        //开启分页的功能
         PageHelper.startPage(pageNum,4);
         //查询所有的员工信息
         List<Employee> list = employeeMapper.getAllEmployee();
