@@ -20,12 +20,12 @@ import java.util.List;
  * @return:
  * @Author: Ceekey  Email:147464823@qq.com
  * @Date: 2022/08/25/17:08
- * ²éÑ¯ËùÓĞÔ±¹¤ĞÅÏ¢-->/employee -->get
- * ¸ù¾İid²éÑ¯Ô±¹¤ĞÅÏ¢-->/employee/1 -->get
- * Ìø×ªµ½Ìí¼ÓÒ³Ãæ-->/to/add -->get
- * Ìí¼ÓÔ±¹¤ĞÅÏ¢-->/employee -->post
- * ĞŞ¸ÄÔ±¹¤ĞÅÏ¢-->/employee -->put
- * ¸ù¾İidÉ¾³ıÔ±¹¤ĞÅÏ¢-->/employee/1 -->delete
+ * æŸ¥è¯¢æ‰€æœ‰å‘˜å·¥ä¿¡æ¯-->/employee -->get
+ * æ ¹æ®idæŸ¥è¯¢å‘˜å·¥ä¿¡æ¯-->/employee/1 -->get
+ * è·³è½¬åˆ°æ·»åŠ é¡µé¢-->/to/add -->get
+ * æ·»åŠ å‘˜å·¥ä¿¡æ¯-->/employee -->post
+ * ä¿®æ”¹å‘˜å·¥ä¿¡æ¯-->/employee -->put
+ * æ ¹æ®idåˆ é™¤å‘˜å·¥ä¿¡æ¯-->/employee/1 -->delete
  */
 @Controller
 public class EmployeeController {
@@ -35,21 +35,21 @@ public class EmployeeController {
 
     @GetMapping("/employee/page/{pageNum}")
     public String getEmployeePage(Model model,@PathVariable("pageNum") Integer pageNum) {
-        //»ñÈ¡·ÖÒ³µÄĞÅÏ¢
+        //è·å–åˆ†é¡µçš„ä¿¡æ¯(pull)
         PageInfo<Employee> page = employeeService.getEmployeePage(pageNum);
-        //½«·ÖÒ³Êı¾İ¹²ÏíÔÚÇëÇóÓòÖĞ
+        //å°†åˆ†é¡µæ•°æ®å…±äº«åœ¨è¯·æ±‚åŸŸä¸­
         model.addAttribute("page",page);
-        //Ìø×ªµ½employee_list.html
+        //è·³è½¬åˆ°employee_list.html
         return "employee_list";
     }
 
     @GetMapping("/employee")
     public String getAllEmployee(Model model){
-        //²éÑ¯ËùÓĞµÄÔ±¹¤ĞÅÏ¢
+        //æŸ¥è¯¢æ‰€æœ‰çš„å‘˜å·¥ä¿¡æ¯
         List<Employee> list = employeeService.getAllEmployee();
-        //½«Ô±¹¤ĞÅÏ¢ÔÚÇëÇóÓòÖĞ¹²Ïí
+        //å°†å‘˜å·¥ä¿¡æ¯åœ¨è¯·æ±‚åŸŸä¸­å…±äº«
         model.addAttribute("list",list);
-        //Ìø×ªµ½employee_list.html
+        //è·³è½¬åˆ°employee_list.html
         return "employee_list";
     }
 }
